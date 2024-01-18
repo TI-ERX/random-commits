@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 _() {
-  YEAR="2019"
+  YEAR="2020"
   echo "GitHub Username: "
   read -r USERNAME
   echo "GitHub Access token: "
