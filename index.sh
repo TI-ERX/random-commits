@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 _() {
-  YEAR="2020"
+  YEAR="2019"
   echo "GitHub Username: "
   read -r USERNAME
   echo "GitHub Access token: "
@@ -24,7 +24,7 @@ _() {
     for DAY in {01..31}
     do
       # Verifica se o dia é válido para o mês
-      if [ $DAY -le $(cal $MONTH $YEAR | awk 'NF {DAYS = $NF} END {print DAYS}') ]; then
+      if [ "$MONTH-$DAY" != "02-30" ] && [ "$MONTH-$DAY" != "02-31" ] && [ "$MONTH-$DAY" != "04-31" ] && [ "$MONTH-$DAY" != "06-31" ] && [ "$MONTH-$DAY" != "09-31" ] && [ "$MONTH-$DAY" != "11-31" ]; then
         # Verifica se o dia é um sábado ou domingo (dias 6 e 0 no formato ISO, onde segunda é 1)
         if [ "$(date -d "${YEAR}-${MONTH}-${DAY}" +%u)" -ge 6 ]; then
           continue  # Pula para o próximo dia se for sábado ou domingo
